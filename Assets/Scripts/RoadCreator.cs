@@ -19,9 +19,9 @@ public class RoadCreator : MonoBehaviour {
     private float spawnStartY;
     private int verticalOffset = 0;
     private int chunkCount = 0;
+
     // Use this for initialization
 	void Start () {
-        //randomiser = new Random();
         speed = initSpeed;
         roadPieces = new Queue<GameObject>();        
         spawnStartX = horizontalTiles * 10 / 2;
@@ -60,7 +60,6 @@ public class RoadCreator : MonoBehaviour {
                 do
                 {
                     direction = Mathf.RoundToInt(Random.Range(-1, 2));
-                    Debug.Log(direction);
                     verticalOffset += direction;
                 } while (verticalOffset < -tileBending || verticalOffset > tileBending);
                 chunkCount = 0;
