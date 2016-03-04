@@ -18,8 +18,5 @@ public class PlayerMovement : MonoBehaviour {
 		                                this.gameObject.GetComponent<Transform>().position.z);
 
 		this.gameObject.GetComponent<Transform> ().position = movement;
-
-
-		Debug.Log (movement);
 	}
 }
