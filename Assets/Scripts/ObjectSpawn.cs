@@ -28,8 +28,6 @@ public class ObjectSpawn : MonoBehaviour {
                 spawnedItem.transform.position = new Vector3(transform.position.x, transform.position.y+8f,transform.position.z+1f);
             }
 			ObjectTimer.canSpawn = false;
-            Debug.Log(offSet);
-            Debug.Log(RoadCreator.globalHorTiles);
             
         }
 	}
