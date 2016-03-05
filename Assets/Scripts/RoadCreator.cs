@@ -11,18 +11,27 @@ public class RoadCreator : MonoBehaviour {
     public GameObject tile;
     public int tileBending;
     public int chunks;
+    public float diffCurveAmmount;
+    public float diffCurveRate;
+    public float maxSpeed;
+    public float minTiles;
 
     public static float speed;
 	public static int globalHorTiles;
+    public static float difficulty = 1f;
 
     private Queue<GameObject> roadPieces;
     private float spawnStartX;
     private float spawnStartY;
     private int verticalOffset = 0;
     private int chunkCount = 0;
+    private int prevDir = 0;
+    private int originalHorTiles;
 
     // Use this for initialization
 	void Start () {
+        originalHorTiles = horizontalTiles;
+        InvokeRepeating("difficultyIncrease",2,diffCurveRate);
 		globalHorTiles = horizontalTiles;
         speed = initSpeed;
         roadPieces = new Queue<GameObject>();        
@@ -40,8 +49,9 @@ public class RoadCreator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        replace();
-        move();        
+        replace();                
+        move();    
+        globalHorTiles = horizontalTiles;    
 	}
 
     void move()
@@ -60,8 +70,16 @@ public class RoadCreator : MonoBehaviour {
             {
                 int direction;
                 do
-                {
-                    direction = Mathf.RoundToInt(Random.Range(-1, 2));
+                { 
+                    int min = -1, max = 2;   
+                    if (prevDir == 1)
+                    {
+                        max = 1;
+                    }else if (prevDir == -1)
+                    {
+                        min = 0;
+                    }                
+                    direction = Mathf.RoundToInt(Random.Range(min, max));
                     verticalOffset += direction;
                 } while (verticalOffset < -tileBending || verticalOffset > tileBending);
                 chunkCount = 0;
@@ -78,6 +96,26 @@ public class RoadCreator : MonoBehaviour {
                 Destroy(roadPieces.Dequeue());                
                 roadPieces.Enqueue((GameObject)Instantiate(tile, spawnPosition, Quaternion.identity));
             }                      
+        }
+    }
+    
+    void difficultyIncrease(){
+        difficulty += diffCurveAmmount;
+        speedIncrease();
+        shorterRoad();
+    }
+    
+    void speedIncrease(){
+        if (speed < maxSpeed)
+        {
+            speed = speed+difficulty;            
+        }
+    }
+    
+    void shorterRoad(){
+        if (horizontalTiles > minTiles)
+        {
+            horizontalTiles = originalHorTiles - ((int)Mathf.Floor(difficulty)-1);            
         }
     }
 }

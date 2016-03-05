@@ -3,14 +3,15 @@ using System.Collections;
 
 public class GrassMove : MonoBehaviour {
 
-	public float speed;
+	private float speed;
 
 	void Start () {
-
+        speed = RoadCreator.speed;
 	}
 
 	void Update () 
 	{
+        speed = RoadCreator.speed;
 		if (this.gameObject.transform.position.z > 400f)
 		{
 			this.gameObject.transform.position = new Vector3(
