@@ -46,11 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DeathByContact.cs" />
      <Compile Include="Assets\Scripts\GrassMove.cs" />
      <Compile Include="Assets\Scripts\ObjectSpawn.cs" />
      <Compile Include="Assets\Scripts\ObjectTimer.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\RoadCreator.cs" />
+     <Compile Include="Assets\Scripts\SinglePlayerScore.cs" />
      <None Include="Assets\Horse\SoftAlpha.shader" />
      <None Include="Assets\City Props Pack\Readme.txt" />
  <Reference Include="UnityEngine.UI">
