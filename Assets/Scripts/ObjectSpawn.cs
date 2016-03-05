@@ -22,10 +22,10 @@ public class ObjectSpawn : MonoBehaviour {
 			float offSet = Random.Range(11,RoadCreator.globalHorTiles*10f-22f);
 			if (RoadCreator.globalHorTiles == 14)
             {
-                spawnedItem.transform.position = new Vector3(transform.position.x+offSet, transform.position.y+6f,transform.position.z+1f);
+                spawnedItem.transform.position = new Vector3(transform.position.x+offSet, transform.position.y+8f,transform.position.z+1f);
             }else
             {
-                spawnedItem.transform.position = new Vector3(transform.position.x, transform.position.y+6f,transform.position.z+1f);
+                spawnedItem.transform.position = new Vector3(transform.position.x, transform.position.y+8f,transform.position.z+1f);
             }
 			ObjectTimer.canSpawn = false;
             Debug.Log(offSet);
