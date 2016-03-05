@@ -13,7 +13,7 @@ public class SinglePlayerScore : MonoBehaviour {
 
 	void Start () {
 		nextScoreUpdate = scoreTimeIncrements;
-		scoreText = GameObject.Find ("Hud").GetComponent<Text> ();
+		scoreText = GameObject.Find ("Score").GetComponent<Text> ();
 	}
 
 
