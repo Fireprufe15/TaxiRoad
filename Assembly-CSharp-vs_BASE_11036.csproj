@@ -13,8 +13,7 @@
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	<DebugSymbols>true</DebugSymbols>
 	<DebugType>full</DebugType>
@@ -24,8 +23,7 @@
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 	<DebugType>pdbonly</DebugType>
 	<Optimize>true</Optimize>
@@ -34,8 +32,7 @@
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <ItemGroup>
 	<Reference Include="System" />
     <Reference Include="System.XML" />
@@ -51,19 +48,12 @@
   <ItemGroup>
      <Compile Include="Assets\FireExplosionVFX\Scripts\FxSplash.cs" />
      <Compile Include="Assets\FireExplosionVFX\Scripts\LaunchEffect.cs" />
-<<<<<<< HEAD
-     <Compile Include="Assets\Scripts\CamShake.cs" />
-=======
-     <Compile Include="Assets\Menu\Scripts\MenuController.cs" />
->>>>>>> origin/master
      <Compile Include="Assets\Scripts\DeathByContact.cs" />
-     <Compile Include="Assets\Scripts\GrassDamage.cs" />
      <Compile Include="Assets\Scripts\GrassMove.cs" />
      <Compile Include="Assets\Scripts\ObjectSpawn.cs" />
      <Compile Include="Assets\Scripts\ObjectTimer.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PositionRaycast.cs" />
-     <Compile Include="Assets\Scripts\ReloadLevel.cs" />
      <Compile Include="Assets\Scripts\RoadCreator.cs" />
      <Compile Include="Assets\Scripts\SinglePlayerScore.cs" />
      <None Include="Assets\Horse\SoftAlpha.shader" />
@@ -83,4 +73,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
