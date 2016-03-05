@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\ObjectSpawn.cs" />
      <Compile Include="Assets\Scripts\ObjectTimer.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\PositionRaycast.cs" />
      <Compile Include="Assets\Scripts\RoadCreator.cs" />
      <Compile Include="Assets\Scripts\SinglePlayerScore.cs" />
      <None Include="Assets\Horse\SoftAlpha.shader" />

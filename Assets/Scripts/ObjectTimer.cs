@@ -15,16 +15,24 @@ public class ObjectTimer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        InvokeRepeating("IncSpawnFrequency",RoadCreator.diffCurveRateGlobal,RoadCreator.diffCurveRateGlobal);
         nextSpawnTime = timeBetweenSpawns;
 		spawnedObjectList = initList;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {        
         if (Time.time >= nextSpawnTime)
         {
             canSpawn = true;
             nextSpawnTime = Time.time + timeBetweenSpawns;
         }
 	}
+    
+    void IncSpawnFrequency(){
+        if (timeBetweenSpawns > 0.5f)
+        {
+            timeBetweenSpawns = timeBetweenSpawns - (RoadCreator.difficulty/200f);
+        }       
+    }
 }

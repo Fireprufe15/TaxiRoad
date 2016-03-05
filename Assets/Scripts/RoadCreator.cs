@@ -19,6 +19,7 @@ public class RoadCreator : MonoBehaviour {
     public static float speed;
 	public static int globalHorTiles;
     public static float difficulty = 1f;
+    public static float diffCurveRateGlobal;
 
     private Queue<GameObject> roadPieces;
     private float spawnStartX;
@@ -31,6 +32,7 @@ public class RoadCreator : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         originalHorTiles = horizontalTiles;
+        diffCurveRateGlobal = diffCurveRate;
         InvokeRepeating("difficultyIncrease",2,diffCurveRate);
 		globalHorTiles = horizontalTiles;
         speed = initSpeed;
@@ -115,7 +117,7 @@ public class RoadCreator : MonoBehaviour {
     void shorterRoad(){
         if (horizontalTiles > minTiles)
         {
-            horizontalTiles = originalHorTiles - ((int)Mathf.Floor(difficulty)-1);            
+            horizontalTiles = originalHorTiles - ((int)Mathf.Floor(difficulty*2f)-1);            
         }
     }
 }

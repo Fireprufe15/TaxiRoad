@@ -18,6 +18,13 @@ public class SinglePlayerScore : MonoBehaviour {
 
 
 	void Update () {
+        if (PositionRaycast.onRoad != true)
+        {
+            isCounting = false;
+        }else
+        {
+            isCounting = true;
+        }
 		if (Time.time >= nextScoreUpdate && isCounting) {
 			Score += scoreUnitIncrements;
 			scoreText.text = "Score: " + Score;

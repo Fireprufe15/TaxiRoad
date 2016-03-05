@@ -10,6 +10,7 @@ public class DeathByContact : MonoBehaviour {
 			crash.Play();
 			Destroy(this.gameObject);
 			SinglePlayerScore.isCounting = false;
+            RoadCreator.speed = 0;            
 		}
 	}
 }
