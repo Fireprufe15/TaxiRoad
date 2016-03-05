@@ -48,12 +48,14 @@
   <ItemGroup>
      <Compile Include="Assets\FireExplosionVFX\Scripts\FxSplash.cs" />
      <Compile Include="Assets\FireExplosionVFX\Scripts\LaunchEffect.cs" />
+     <Compile Include="Assets\Menu\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\DeathByContact.cs" />
      <Compile Include="Assets\Scripts\GrassMove.cs" />
      <Compile Include="Assets\Scripts\ObjectSpawn.cs" />
      <Compile Include="Assets\Scripts\ObjectTimer.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PositionRaycast.cs" />
+     <Compile Include="Assets\Scripts\ReloadLevel.cs" />
      <Compile Include="Assets\Scripts\RoadCreator.cs" />
      <Compile Include="Assets\Scripts\SinglePlayerScore.cs" />
      <None Include="Assets\Horse\SoftAlpha.shader" />
