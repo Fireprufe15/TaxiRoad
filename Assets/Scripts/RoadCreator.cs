@@ -13,6 +13,7 @@ public class RoadCreator : MonoBehaviour {
     public int chunks;
 
     public static float speed;
+	public static int globalHorTiles;
 
     private Queue<GameObject> roadPieces;
     private float spawnStartX;
@@ -22,6 +23,7 @@ public class RoadCreator : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+		globalHorTiles = horizontalTiles;
         speed = initSpeed;
         roadPieces = new Queue<GameObject>();        
         spawnStartX = horizontalTiles * 10 / 2;
@@ -30,7 +32,7 @@ public class RoadCreator : MonoBehaviour {
         {
             for (int j = 0; j < horizontalTiles; j++)
             {
-                Vector3 spawnPosition = new Vector3(-((j * 10) - spawnStartX), 0f, -(i *10 - spawnStartY));
+                Vector3 spawnPosition = new Vector3(-((j * 10) - spawnStartX), -5f, -(i *10 - spawnStartY));
                 roadPieces.Enqueue((GameObject)Instantiate(tile, spawnPosition, Quaternion.identity));
             }
         }
@@ -46,7 +48,7 @@ public class RoadCreator : MonoBehaviour {
     {
         foreach (GameObject piece in roadPieces)
         {
-            piece.transform.position = new Vector3(piece.transform.position.x, 0f, piece.transform.position.z + speed*Time.deltaTime);
+            piece.transform.position = new Vector3(piece.transform.position.x, -5f, piece.transform.position.z + speed*Time.deltaTime);
         }
     }
 
@@ -72,7 +74,7 @@ public class RoadCreator : MonoBehaviour {
             
             for (int i = 0; i < horizontalTiles; i++)
             {
-                Vector3 spawnPosition = new Vector3(((i+1+verticalOffset) * 10) - spawnStartX, 0f, roadPieces.Peek().transform.position.z - verticalTiles*10f+10f);
+                Vector3 spawnPosition = new Vector3(((i+1+verticalOffset) * 10) - spawnStartX, -5f, roadPieces.Peek().transform.position.z - verticalTiles*10f+10f);
                 Destroy(roadPieces.Dequeue());                
                 roadPieces.Enqueue((GameObject)Instantiate(tile, spawnPosition, Quaternion.identity));
             }                      
