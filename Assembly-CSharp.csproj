@@ -13,8 +13,7 @@
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	<DebugSymbols>true</DebugSymbols>
 	<DebugType>full</DebugType>
@@ -24,8 +23,7 @@
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 	<DebugType>pdbonly</DebugType>
 	<Optimize>true</Optimize>
@@ -34,8 +32,7 @@
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <ItemGroup>
 	<Reference Include="System" />
     <Reference Include="System.XML" />
@@ -51,11 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\FireExplosionVFX\Scripts\FxSplash.cs" />
      <Compile Include="Assets\FireExplosionVFX\Scripts\LaunchEffect.cs" />
-<<<<<<< HEAD
-     <Compile Include="Assets\Scripts\CamShake.cs" />
-=======
      <Compile Include="Assets\Menu\Scripts\MenuController.cs" />
->>>>>>> origin/master
+     <Compile Include="Assets\Scripts\CamShake.cs" />
      <Compile Include="Assets\Scripts\DeathByContact.cs" />
      <Compile Include="Assets\Scripts\GrassDamage.cs" />
      <Compile Include="Assets\Scripts\GrassMove.cs" />
@@ -83,4 +77,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
