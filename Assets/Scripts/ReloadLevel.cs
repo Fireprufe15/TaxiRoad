@@ -11,4 +11,15 @@ public class ReloadLevel : MonoBehaviour {
 		Application.LoadLevel (Application.loadedLevel);
 	}
 
+	public GameObject c;
+
+	public void HideCanvas()
+	{
+		c.SetActive (false);
+	}
+
+	public void mainMenu()
+	{
+		Application.LoadLevel ("Menu");
+	}
 }

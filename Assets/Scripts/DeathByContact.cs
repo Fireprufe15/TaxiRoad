@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class DeathByContact : MonoBehaviour {
@@ -7,6 +8,7 @@ public class DeathByContact : MonoBehaviour {
 	public Transform playerTransform;
     
     private AudioSource gravel;
+	private AudioSource engine;
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Spawnable")
@@ -17,12 +19,15 @@ public class DeathByContact : MonoBehaviour {
 			crash.Play();
 			Destroy(this.gameObject);
 			SinglePlayerScore.isCounting = false;
-            RoadCreator.speed = 0;         
+            RoadCreator.speed = 0;   
+			s.gameObject.SetActive(false);
+			stopAudio ();
 		}
 	}
     
     void Start(){
         gravel = GameObject.Find("gravelSound").GetComponent<AudioSource>(); 
+		engine = GameObject.Find("engine").GetComponent<AudioSource>(); 
     }
     
     void Update(){
@@ -31,7 +36,7 @@ public class DeathByContact : MonoBehaviour {
             grassKill();
         }
         
-        if (!PositionRaycast.onRoad && !gravel.isPlaying)
+		if (!PositionRaycast.onRoad && !gravel.isPlaying && GrassDamage.playerHealth > 0)
         {
             gravel.Play();            
         }else if (PositionRaycast.onRoad && gravel.isPlaying)
@@ -41,6 +46,8 @@ public class DeathByContact : MonoBehaviour {
         }
     }
     
+	public Slider s;
+
     void grassKill(){
 			GameObject.Find("GUI").GetComponent<Animator>().SetTrigger("GameOver");
 			AudioSource crash = GameObject.Find("Crash").GetComponent<AudioSource>(); 
@@ -48,7 +55,19 @@ public class DeathByContact : MonoBehaviour {
 			Destroy(this.gameObject);
 			SinglePlayerScore.isCounting = false;
             RoadCreator.speed = 0;
+			stopAudio ();
+
+		if (GrassDamage.playerHealth == 0)
+		{
+			s.gameObject.SetActive(false);
+		}
     }
+
+	void stopAudio()
+	{
+		gravel.Stop ();
+		engine.Stop ();
+	}
     
     
 }

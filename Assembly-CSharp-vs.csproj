@@ -57,9 +57,13 @@
      <Compile Include="Assets\Scripts\ObjectTimer.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PositionRaycast.cs" />
+     <Compile Include="Assets\Scripts\Powerup.cs" />
      <Compile Include="Assets\Scripts\ReloadLevel.cs" />
+     <Compile Include="Assets\Scripts\RepairTires.cs" />
      <Compile Include="Assets\Scripts\RoadCreator.cs" />
+     <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\SinglePlayerScore.cs" />
+     <Compile Include="Assets\Scripts\startGame.cs" />
      <None Include="Assets\Horse\SoftAlpha.shader" />
      <None Include="Assets\City Props Pack\Readme.txt" />
  <Reference Include="UnityEngine.UI">

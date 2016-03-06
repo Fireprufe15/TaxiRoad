@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GrassDamage : MonoBehaviour {
     
-    public static int playerHealth = 100;
+	public static int playerHealth = 100;
+	public static int setHP;
     
     public float damageRate;
     public int damageAmount;
+	public Slider s;
+	public Image bodyColor;
+	public int playerHp;
     
     
     private float nextDamage;
@@ -14,7 +19,9 @@ public class GrassDamage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	   
+		setHP = playerHp;
+		playerHealth = playerHp;
+		s.maxValue = playerHp;
 	}
 	
 	// Update is called once per frame
@@ -31,16 +38,31 @@ public class GrassDamage : MonoBehaviour {
 	   if (!PositionRaycast.onRoad && Time.time >= nextDamage)
        {           
            playerHealth -= damageAmount;
+			updateSlider();
+
            nextDamage += damageRate;
-           Debug.Log(playerHealth);
            if (CamShake.shake == 0.0f)
            {
                CamShake.shake = 2;
            }
        }
-       
-       
-       
-       
+	}
+
+	public void updateSlider()
+	{
+		s.value = playerHealth;
+		
+		if(playerHealth > playerHp/2)
+		{
+			bodyColor.color = new Color32(115,227,125,255);
+		}
+		else if(playerHealth > playerHp/4)
+		{
+			bodyColor.color = new Color32(255,150,30,255);
+		}
+		else if(playerHealth <= playerHp/4)
+		{
+			bodyColor.color = new Color32(255,0,0,255);
+		}
 	}
 }
