@@ -4,22 +4,21 @@ using System.Collections;
 public class MenuController : MonoBehaviour {
 
 	public GameObject creditsGO;
-	public GameObject settingsGO;
 
 	public void StartGame()
 	{
 		GameObject.Find("Canvas_menu").SetActive (false);
+		creditsGO.SetActive (false);
+
 	}
 
 	public void ShowCredits()
 	{
 		creditsGO.SetActive (true);
-		settingsGO.SetActive (false);
 	}
 
-	public void ShowSettings()
+	public void killProgram()
 	{
-		settingsGO.SetActive (true);
-		creditsGO.SetActive (false);
+		Application.Quit();
 	}
 }

@@ -62,7 +62,6 @@
      <Compile Include="Assets\Scripts\RepairTires.cs" />
      <Compile Include="Assets\Scripts\RoadCreator.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
-     <Compile Include="Assets\Scripts\Settings.cs" />
      <Compile Include="Assets\Scripts\SinglePlayerScore.cs" />
      <Compile Include="Assets\Scripts\startGame.cs" />
      <None Include="Assets\Horse\SoftAlpha.shader" />
