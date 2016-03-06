@@ -52,13 +52,45 @@ public class RoadCreator : MonoBehaviour {
                 roadPieces.Enqueue((GameObject)Instantiate(tile, spawnPosition, Quaternion.identity));
             }
         }
+
+		nextCloudSpawn += cloudGap;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         replace();                
         move();    
+		clouds ();
         globalHorTiles = horizontalTiles;    
+	}
+
+	public GameObject cloud1;
+	public GameObject cloud2;
+
+	public float cloudGap;
+	public float cloudSpeedToRoadMultiplier;
+	private float nextCloudSpawn;
+	private List<GameObject> cloudsL = new List<GameObject>();
+
+	void clouds()
+	{
+		if (Time.time > nextCloudSpawn)
+		{
+			int x = Random.Range(1, 3);
+			switch (x)
+			{
+				case 1: 
+				cloudsL.Add((GameObject)Instantiate(cloud1, new Vector3(Random.Range(-12f,12f), 0f, -20f), Quaternion.identity));
+				break;
+
+				case 2: 
+				cloudsL.Add((GameObject)Instantiate(cloud2, new Vector3(Random.Range(-12f,12f), 10f, -20f), Quaternion.identity));
+				break;
+			default:
+			break;
+			}
+
+		}
 	}
 
     void move()
@@ -70,6 +102,11 @@ public class RoadCreator : MonoBehaviour {
             piece.transform.position = new Vector3(piece.transform.position.x, -5f, piece.transform.position.z + speed*Time.deltaTime);
             i++;
         }
+
+		foreach (var cloud in cloudsL)
+		{
+			cloud.transform.position = new Vector3(cloud.transform.position.x, 20f, cloud.transform.position.z + speed*Time.deltaTime*cloudSpeedToRoadMultiplier);
+		}
     }
 
     void replace()

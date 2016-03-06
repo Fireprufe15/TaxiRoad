@@ -1,5 +1,6 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
 Project("{4BE183C7-E28D-6BDB-A0C8-E2F7DDA6C7F5}") = "TaxiRoad", "Assembly-CSharp-vs.csproj", "{C1DC1774-CA27-107A-B3A7-B7A5C3B7A4BE}"
 EndProject
 Project("{4BE183C7-E28D-6BDB-A0C8-E2F7DDA6C7F5}") = "TaxiRoad", "Assembly-CSharp-Editor-firstpass-vs.csproj", "{1BA3BBEA-F1EC-C3CE-3638-6EB17D6DF2BB}"
@@ -19,7 +20,10 @@ Global
 		{1BA3BBEA-F1EC-C3CE-3638-6EB17D6DF2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BA3BBEA-F1EC-C3CE-3638-6EB17D6DF2BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-																																																																			GlobalSection(MonoDevelopProperties) = preSolution
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+																																																																				GlobalSection(MonoDevelopProperties) = preSolution
 =======
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,4 +48,5 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
+
 EndGlobal
