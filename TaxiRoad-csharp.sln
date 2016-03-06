@@ -19,7 +19,7 @@ Global
 		{1BA3BBEA-F1EC-C3CE-3638-6EB17D6DF2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BA3BBEA-F1EC-C3CE-3638-6EB17D6DF2BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-				GlobalSection(MonoDevelopProperties) = preSolution
+						GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

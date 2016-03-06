@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 	public float speed;
+    public Camera cam;
 	public float tiltAmount = 30f;
 	public float tiltSpeed = 10f;
 
@@ -11,8 +12,10 @@ public class PlayerMovement : MonoBehaviour {
 
 
 	void Update () {
+        
+        Vector3 viewpos = cam.WorldToViewportPoint(transform.position);
 		side = Input.GetAxis ("Horizontal");
-
+        
 
 		Vector3 movement = new Vector3 (this.gameObject.GetComponent<Transform>().position.x + side * speed * Time.deltaTime,
 		                                this.gameObject.GetComponent<Transform>().position.y,
@@ -33,7 +36,13 @@ public class PlayerMovement : MonoBehaviour {
 			                                                                Quaternion.Euler (0f, 90f, 0f),
 			                                                                tiltSpeed);
 		}
-
-		this.gameObject.GetComponent<Transform> ().position = movement;
+        if (viewpos.x > 0.03 && side < 0)
+        {
+            this.gameObject.GetComponent<Transform> ().position = movement;
+        }else if (viewpos.x < 0.97 && side > 0)
+        {
+            this.gameObject.GetComponent<Transform> ().position = movement;
+        }
+		
 	}
 }
