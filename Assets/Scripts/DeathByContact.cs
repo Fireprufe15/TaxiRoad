@@ -66,9 +66,17 @@ public class DeathByContact : MonoBehaviour {
 
 	void stopAudio()
 	{
-		int score = GameObject.Find ("ScoreKeeper").GetComponent<SinglePlayerScore> ().Score;
-		GetHighScores.addHighScore ( score, "Blake");
+		// int score = GameObject.Find ("ScoreKeeper").GetComponent<SinglePlayerScore> ().Score;
 
+		updateBoard();
+
+		gravel.Stop ();
+		engine.Stop ();
+		print ("Fired");
+	}
+
+	public void updateBoard()
+	{
 		t.text = "";
 		for (int i = 0; i < 10; i++)
 		{
@@ -76,12 +84,8 @@ public class DeathByContact : MonoBehaviour {
 				//t.text += GetHighScores.highScoreNames[i] + "\t\t\t" + GetHighScores.highScores[i] + "\n";
 				t.text += string.Format("{0,-25}{1,5}\n",GetHighScores.highScoreNames[i],GetHighScores.highScores[i]);
 			}
-
+			
 		}
-
-		gravel.Stop ();
-		engine.Stop ();
-		print ("Fired");
 	}
     
     
