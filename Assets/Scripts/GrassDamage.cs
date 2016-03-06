@@ -32,6 +32,10 @@ public class GrassDamage : MonoBehaviour {
            {
                nextDamage = damageRate+Time.time;
            }
+           if (CamShake.shake == 0.0f)
+           {
+               CamShake.shake = 2;
+           }
         }else{
             nextDamage = 0;
         }
@@ -41,10 +45,11 @@ public class GrassDamage : MonoBehaviour {
 			updateSlider();
 
            nextDamage += damageRate;
-           if (CamShake.shake == 0.0f)
-           {
-               CamShake.shake = 2;
-           }
+           
+       }
+       if (PositionRaycast.onRoad)
+       {
+           CamShake.shake = 0.0f;
        }
 	}
 

@@ -46,7 +46,7 @@ public class ObjectTimer : MonoBehaviour {
         if (Time.time >= nextScoreSpawnTime)
         {
             canSpawnScore = true;
-            nextScoreSpawnTime = Time.time + Random.Range(1f, timeBetweenScoreSpawns);
+            nextScoreSpawnTime = Time.time + Random.Range(3f, timeBetweenScoreSpawns);
         }
 	}
     

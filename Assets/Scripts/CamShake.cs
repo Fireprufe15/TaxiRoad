@@ -15,7 +15,6 @@ public class CamShake : MonoBehaviour {
 	   if (shake > 0)
        {
            transform.localPosition = Random.insideUnitSphere*shakeAmount;
-           shake -= Time.deltaTime* decreaseFactor;
        }else{
            shake =0.0f;
        }

@@ -52,18 +52,18 @@ public class ObjectSpawn : MonoBehaviour {
         GameObject tileToSpawnOn = GameObject.Find(spawnTileIndex.ToString());
         GameObject spawnedItem = (GameObject)Instantiate(ObjectTimer.spawnedObjectList[objectIndex]);
         spawnedItem.transform.SetParent(tileToSpawnOn.transform);
-        int randomSpawnLocale = Random.Range(1,11);
-        if (randomSpawnLocale >= 1 && randomSpawnLocale <= 2 )
+        int randomSpawnLocale = Random.Range(2,11);
+        if (randomSpawnLocale == 1 )
         {
             spawnedItem.transform.position = new Vector3(tileToSpawnOn.transform.position.x, tileToSpawnOn.transform.position.y+8f,tileToSpawnOn.transform.position.z);
         }
-        else if(randomSpawnLocale >=3 && randomSpawnLocale <= 6)
+        else if(randomSpawnLocale >=2 && randomSpawnLocale <= 6)
         {
-            spawnedItem.transform.position = new Vector3(Random.Range(-10*RoadCreator.tileBendingSpawn, (RoadCreator.currentOffset-RoadCreator.globalHorTiles/2)*10), tileToSpawnOn.transform.position.y+8f,tileToSpawnOn.transform.position.z);
+            spawnedItem.transform.position = new Vector3(Random.Range(-10*RoadCreator.tileBendingSpawn, (RoadCreator.currentOffset-RoadCreator.globalHorTiles/2)*10-20), tileToSpawnOn.transform.position.y+8f,tileToSpawnOn.transform.position.z);
         }
         else if(randomSpawnLocale >=7 && randomSpawnLocale <= 10)
         {
-            spawnedItem.transform.position = new Vector3(Random.Range(10*RoadCreator.tileBendingSpawn, (RoadCreator.currentOffset+RoadCreator.globalHorTiles/2)*10), tileToSpawnOn.transform.position.y+8f,tileToSpawnOn.transform.position.z);
+            spawnedItem.transform.position = new Vector3(Random.Range((RoadCreator.currentOffset+RoadCreator.globalHorTiles/2)*10+20,10*RoadCreator.tileBendingSpawn), tileToSpawnOn.transform.position.y+8f,tileToSpawnOn.transform.position.z);
         }
     }
 }
