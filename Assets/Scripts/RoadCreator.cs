@@ -18,8 +18,11 @@ public class RoadCreator : MonoBehaviour {
 
     public static float speed;
 	public static int globalHorTiles;
+    public static int globalVertTiles;
     public static float difficulty = 1f;
     public static float diffCurveRateGlobal;
+    public static int tileBendingSpawn;
+    public static int currentOffset;
 
     private Queue<GameObject> roadPieces;
     private float spawnStartX;
@@ -32,6 +35,8 @@ public class RoadCreator : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         originalHorTiles = horizontalTiles;
+        tileBendingSpawn = tileBending;
+        globalVertTiles = verticalTiles;
         diffCurveRateGlobal = diffCurveRate;
         InvokeRepeating("difficultyIncrease",2,diffCurveRate);
 		globalHorTiles = horizontalTiles;
@@ -58,9 +63,12 @@ public class RoadCreator : MonoBehaviour {
 
     void move()
     {
+        int i = 0;
         foreach (GameObject piece in roadPieces)
-        {
+        {            
+            piece.name = (i + globalHorTiles).ToString();
             piece.transform.position = new Vector3(piece.transform.position.x, -5f, piece.transform.position.z + speed*Time.deltaTime);
+            i++;
         }
     }
 
@@ -83,6 +91,7 @@ public class RoadCreator : MonoBehaviour {
                     }                
                     direction = Mathf.RoundToInt(Random.Range(min, max));
                     verticalOffset += direction;
+                    currentOffset = verticalOffset;
                 } while (verticalOffset < -tileBending || verticalOffset > tileBending);
                 chunkCount = 0;
             }
@@ -95,8 +104,10 @@ public class RoadCreator : MonoBehaviour {
             for (int i = 0; i < horizontalTiles; i++)
             {
                 Vector3 spawnPosition = new Vector3(((i+1+verticalOffset) * 10) - spawnStartX, -5f, roadPieces.Peek().transform.position.z - verticalTiles*10f+10f);
-                Destroy(roadPieces.Dequeue());                
-                roadPieces.Enqueue((GameObject)Instantiate(tile, spawnPosition, Quaternion.identity));
+                Destroy(roadPieces.Dequeue());   
+                GameObject roadPieceNew = (GameObject)Instantiate(tile, spawnPosition, Quaternion.identity);
+                roadPieceNew.name = i.ToString();             
+                roadPieces.Enqueue(roadPieceNew);
             }                      
         }
     }

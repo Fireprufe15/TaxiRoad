@@ -23,11 +23,11 @@ public class PositionRaycast : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
-            if (hit.collider.gameObject.name == "Road(Clone)")
+            if (hit.collider.gameObject.name == "grass" || hit.collider.gameObject.name == "grass 1")
             {
-                onRoad = true;
-            }else{
                 onRoad = false;
+            }else{
+                onRoad = true;
             }
         }else{
             onRoad = false;
