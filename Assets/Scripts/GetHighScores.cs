@@ -32,12 +32,22 @@ public class GetHighScores : MonoBehaviour {
                 {
                     highScores.RemoveAt(10);
                     highScoreNames.RemoveAt(10);
-                } 
+                }
+                writePrefs(); 
                 return;             
             }
         }
     }
 	
+    static void writePrefs(){
+        for (int i = 0; i < highScores.Count; i++)
+        {
+            string highScoreKey = "highScore"+i.ToString();
+            string highScoreNameKey = "highScoreName"+i.ToString();
+            PlayerPrefs.SetInt(highScoreKey, highScores[i]);
+            PlayerPrefs.SetString(highScoreNameKey, highScoreNames[i]);
+        }
+    }
 	// Update is called once per frame
 	void Update () {
 	
