@@ -60,7 +60,7 @@ public class RoadCreator : MonoBehaviour {
 	void Update () {
         replace();                
         move();    
-		clouds ();
+		clouds (Random.Range(-12f,12f), Random.Range(1,3));
         globalHorTiles = horizontalTiles;    
 	}
 
@@ -72,24 +72,24 @@ public class RoadCreator : MonoBehaviour {
 	private float nextCloudSpawn;
 	private List<GameObject> cloudsL = new List<GameObject>();
 
-	void clouds()
+	void clouds(float x, int cloudNum)
 	{
 		if (Time.time > nextCloudSpawn)
 		{
-			int x = Random.Range(1, 3);
-			switch (x)
+			switch (cloudNum)
 			{
 				case 1: 
-				cloudsL.Add((GameObject)Instantiate(cloud1, new Vector3(Random.Range(-12f,12f), 0f, -20f), Quaternion.identity));
+				cloudsL.Add((GameObject)Instantiate(cloud1, new Vector3(x*10f, 20f, -200f), Quaternion.identity));
 				break;
 
 				case 2: 
-				cloudsL.Add((GameObject)Instantiate(cloud2, new Vector3(Random.Range(-12f,12f), 10f, -20f), Quaternion.identity));
+				cloudsL.Add((GameObject)Instantiate(cloud2, new Vector3(x*10f, 20f, -200f), Quaternion.identity));
 				break;
 			default:
 			break;
 			}
 
+			nextCloudSpawn = Time.time + cloudGap;
 		}
 	}
 

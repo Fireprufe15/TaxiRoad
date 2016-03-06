@@ -49,6 +49,7 @@
      <Compile Include="Assets\FireExplosionVFX\Scripts\FxSplash.cs" />
      <Compile Include="Assets\FireExplosionVFX\Scripts\LaunchEffect.cs" />
      <Compile Include="Assets\Menu\Scripts\MenuController.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\CamShake.cs" />
      <Compile Include="Assets\Scripts\DeathByContact.cs" />
      <Compile Include="Assets\Scripts\GetHighScores.cs" />

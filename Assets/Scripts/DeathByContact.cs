@@ -6,6 +6,7 @@ public class DeathByContact : MonoBehaviour {
 
 	public GameObject particle;
 	public Transform playerTransform;
+	public Text t;
     
     private AudioSource gravel;
 	private AudioSource engine;
@@ -65,8 +66,22 @@ public class DeathByContact : MonoBehaviour {
 
 	void stopAudio()
 	{
+		int score = GameObject.Find ("ScoreKeeper").GetComponent<SinglePlayerScore> ().Score;
+		GetHighScores.addHighScore ( score, "Blake");
+
+		t.text = "";
+		for (int i = 0; i < 10; i++)
+		{
+			if (GetHighScores.highScores[i] != 0) {
+				//t.text += GetHighScores.highScoreNames[i] + "\t\t\t" + GetHighScores.highScores[i] + "\n";
+				t.text += string.Format("{0,-25}{1,5}\n",GetHighScores.highScoreNames[i],GetHighScores.highScores[i]);
+			}
+
+		}
+
 		gravel.Stop ();
 		engine.Stop ();
+		print ("Fired");
 	}
     
     

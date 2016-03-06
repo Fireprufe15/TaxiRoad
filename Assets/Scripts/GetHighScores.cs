@@ -9,19 +9,18 @@ public class GetHighScores : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	   highScores = new List<int>();
+		highScores = new List<int>();
+		highScoreNames = new List<string>();
        for (int i = 0; i < 10; i++)
        {
            string highScoreKey = "highScore"+i.ToString();
            string highScoreNameKey = "highScoreName"+i.ToString();
            highScores.Add(PlayerPrefs.GetInt(highScoreKey,0));
-           highScoreNames.Add(PlayerPrefs.GetString(highScoreNameKey, ""));
-           
+           highScoreNames.Add(PlayerPrefs.GetString(highScoreNameKey, "Empty"));
        }
-       
 	}
     
-    static void addHighScore(int score, string name){
+    static public void addHighScore(int score, string name){
         for (int i = 0; i < highScores.Count; i++)
         {
             if (score > highScores[i])
