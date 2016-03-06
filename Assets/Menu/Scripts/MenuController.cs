@@ -4,6 +4,7 @@ using System.Collections;
 public class MenuController : MonoBehaviour {
 
 	public GameObject creditsGO;
+    public GameObject popUp;
 
 	public void StartGame()
 	{
@@ -21,4 +22,14 @@ public class MenuController : MonoBehaviour {
 	{
 		Application.Quit();
 	}
+    
+    public void resetProgram(){
+        PlayerPrefs.DeleteAll();
+		popUp.SetActive (true);
+    }
+    
+    public void closePopup()
+    {
+		popUp.SetActive (false);
+    }
 }
