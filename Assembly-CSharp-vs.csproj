@@ -54,6 +54,7 @@
      <Compile Include="Assets\Menu\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\CamShake.cs" />
      <Compile Include="Assets\Scripts\DeathByContact.cs" />
+     <Compile Include="Assets\Scripts\GetHighScores.cs" />
      <Compile Include="Assets\Scripts\GrassDamage.cs" />
      <Compile Include="Assets\Scripts\GrassMove.cs" />
      <Compile Include="Assets\Scripts\ObjectSpawn.cs" />
