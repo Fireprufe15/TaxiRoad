@@ -39,7 +39,7 @@ public class ObjectSpawn : MonoBehaviour {
 	}
     
     void spawnSpecific(int objectIndex){        
-        int spawnTileIndex = Mathf.RoundToInt(Random.Range(900, 1100 ));
+        int spawnTileIndex = Mathf.RoundToInt(Random.Range(900, 1000 ));
         GameObject tileToSpawnOn = GameObject.Find(spawnTileIndex.ToString());
         GameObject spawnedItem = (GameObject)Instantiate(ObjectTimer.spawnedObjectList[objectIndex]);
         spawnedItem.transform.SetParent(tileToSpawnOn.transform);
@@ -48,7 +48,7 @@ public class ObjectSpawn : MonoBehaviour {
     }
     
     void spawnPowerupAnywhere(int objectIndex){
-        int spawnTileIndex = Mathf.RoundToInt(Random.Range(900, 1100 ));
+        int spawnTileIndex = Mathf.RoundToInt(Random.Range(900, 1000 ));
         GameObject tileToSpawnOn = GameObject.Find(spawnTileIndex.ToString());
         GameObject spawnedItem = (GameObject)Instantiate(ObjectTimer.spawnedObjectList[objectIndex]);
         spawnedItem.transform.SetParent(tileToSpawnOn.transform);
